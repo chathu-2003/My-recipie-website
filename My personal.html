@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exotic Fish Showcase</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #87CEEB, #005f73);
+            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .header {
+            background: #003366;
+            color: white;
+            padding: 30px 20px;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .search-container {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar {
+            padding: 12px 20px;
+            width: 300px;
+            font-size: 18px;
+            border-radius: 25px;
+            border: 2px solid #ccc;
+            outline: none;
+            transition: 0.3s ease;
+        }
+        .search-bar:focus {
+            border-color: #003366;
+        }
+        .container {
+            margin: 20px auto;
+            max-width: 900px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+        }
+        .fish {
+            margin-bottom: 30px;
+            transition: 0.3s ease;
+        }
+        .fish img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            transition: 0.3s ease;
+        }
+        .fish h2 {
+            color: #003366;
+            font-size: 24px;
+            text-transform: capitalize;
+        }
+        .fish p {
+            font-size: 16px;
+            color: #555;
+        }
+        .fish img:hover {
+            transform: scale(1.05);
+        }
+        .fish:hover {
+            background-color: #f4f4f4;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Beautiful Exotic Fish</div>
+    
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input class="search-bar" type="text" id="search" placeholder="Search for fish..." onkeyup="searchFish()">
+    </div>
+
+    <div class="container">
+        <div class="fish" id="mandarinfish">
+            <a href="mandarani.html">
+                <h2>Pet Fish</h2>
+                <img src="/image/6b0f5d54-3693-4be5-95f5-b6855422f7c1.webp" alt="Mandarinfish">
+                <p>Known for its bright blue, orange, and green colors, the mandarinfish is one of the most exotic marine species.</p>
+            </a>
+        </div>
+        <div class="fish" id="clowntriggerfish">
+            <a href="recipie fish.html">
+                <h2>Clown Triggerfish</h2>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV1mi1Mwkbwv77GfzYqXeT9u_WTEnpVZKQJw&s" alt="Clown Triggerfish">
+                <p>The clown triggerfish stands out with its unique pattern and vibrant yellow mouth.</p>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function searchFish() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const fishItems = document.querySelectorAll('.fish');
+
+            fishItems.forEach(item => {
+                const fishName = item.querySelector('h2').textContent.toLowerCase();
+                if (fishName.includes(query)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
