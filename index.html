@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exotic Fish Showcase</title>
+  <link rel="stylesheet" href="/CSS/style.css" />
+  <style>
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      position: relative;
+      background: transparent;
+      color: white;
+      z-index: 1;
+      padding: 20px;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .navbar .menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .navbar a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .navbar .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .navbar .menu.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    .header {
+      text-align: center;
+      font-size: 2rem;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .search-bar {
+      padding: 10px;
+      width: 300px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .fish {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      margin: 0 auto 30px auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .fish img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .about-section,
+    .services-section,
+    .contact-section {
+      display: none;
+      background: rgba(0,0,0,0.5);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .about-section h2,
+    .services-section h2,
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .about-section p,
+    .services-section p,
+    .contact-section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background: #1e90ff;
+      color: white;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #007acc;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="bg-video" autoplay muted loop>
+    <source src="/videos/127713-739309133_large.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Responsive Navbar -->
+  <div class="navbar">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="menu" id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="javascript:void(0);" onclick="toggleAbout()">About</a>
+      <a href="javascript:void(0);" onclick="toggleServices()">Services</a>
+      <a href="javascript:void(0);" onclick="toggleContact()">Contact</a>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <div class="header" id="mainHeader">Beautiful Exotic Fish</div>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input class="search-bar" type="text" id="search" placeholder="Search for fish..." onkeyup="searchFish()">
+  </div>
+
+  <!-- Fish 1 -->
+  <div class="fish" id="mandarinfish">
+    <a href="mandarani.html">
+      <h2>Pet Fish</h2>
+      <img src="/image/6b0f5d54-3693-4be5-95f5-b6855422f7c1.webp" alt="Mandarinfish">
+      <p>Known for its bright blue, orange, and green colors, the mandarinfish is one of the most exotic marine species.</p>
+    </a>
+  </div>
+
+  <!-- Fish 2 -->
+  <div class="fish" id="clowntriggerfish">
+    <a href="recipie fish.html">
+      <h2>Clown Triggerfish</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV1mi1Mwkbwv77GfzYqXeT9u_WTEnpVZKQJw&s" alt="Clown Triggerfish">
+      <p>The clown triggerfish stands out with its unique pattern and vibrant yellow mouth.</p>
+    </a>
+  </div>
+
+  <!-- About Section -->
+  <div id="aboutSection" class="about-section">
+    <h2>About Us</h2>
+    <p>Welcome to the Exotic Fish Showcase! We are passionate about bringing you some of the most stunning and colorful exotic fish from around the globe.</p>
+    <p>Our goal is to educate, inspire, and connect marine life enthusiasts through vibrant visuals and interesting facts.</p>
+
+    <h3>Pet Fish</h3>
+    <img src="/image/download.jpg" alt="Pet Fish - Mandarinfish" style="max-width: 400px; width: 90%; border-radius: 10px; margin: 20px auto;" />
+    <p>This beautiful Mandarinfish is a popular pet for its vibrant colors and calm nature.</p>
+
+    <h3>Curry Fish</h3>
+    <img src="/image/download (1).jpg" alt="Fish Curry" style="max-width: 400px; width: 90%; border-radius: 10px; margin: 20px auto;" />
+    <p>Delicious traditional fish curry, made with freshly caught fish and island spices.</p>
+
+    <h3>Our Mission</h3>
+    <p>To celebrate the beauty of marine biodiversity and raise awareness on the importance of protecting aquatic habitats. Through this showcase, we aim to bring the underwater world closer to you.</p>
+  </div>
+
+  <!-- Services Section -->
+  <div id="servicesSection" class="services-section">
+    <h2>Our Services</h2>
+    <p>We offer a variety of services to cater to fish enthusiasts, aquarists, and marine life lovers.</p>
+    <ul style="text-align: left; display: inline-block; line-height: 1.8; font-size: 1rem;">
+      <li>💧 Aquarium Design & Setup</li>
+      <li>🐟 Exotic Fish Sales & Delivery</li>
+      <li>🧼 Tank Maintenance & Cleaning</li>
+      <li>📘 Fish Care Consultation</li>
+      <li>🎓 Marine Life Workshops</li>
+    </ul>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contactSection" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Whether you have a question, feedback, or just want to say hello, feel free to reach out.</p>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function searchFish() {
+      const query = document.getElementById('search').value.toLowerCase();
+      const fishItems = document.querySelectorAll('.fish');
+      fishItems.forEach(item => {
+        const fishName = item.querySelector('h2').textContent.toLowerCase();
+        item.style.display = fishName.includes(query) ? '' : 'none';
+      });
+    }
+
+    function toggleMenu() {
+      document.getElementById('navMenu').classList.toggle('show');
+    }
+
+    function toggleAbout() {
+      toggleOffAll();
+      const about = document.getElementById('aboutSection');
+      about.style.display = (about.style.display === "none" || about.style.display === "") ? "block" : "none";
+      window.scrollTo({ top: about.offsetTop - 50, behavior: 'smooth' });
+    }
+
+    function toggleServices() {
+      toggleOffAll();
+      const services = document.getElementById('servicesSection');
+      services.style.display = (services.style.display === "none" || services.style.display === "") ? "block" : "none";
+      window.scrollTo({ top: services.offsetTop - 50, behavior: 'smooth' });
+    }
+
+    function toggleContact() {
+      toggleOffAll();
+      const contact = document.getElementById('contactSection');
+      contact.style.display = (contact.style.display === "none" || contact.style.display === "") ? "block" : "none";
+      window.scrollTo({ top: contact.offsetTop - 50, behavior: 'smooth' });
+    }
+
+    function toggleOffAll() {
+      document.getElementById('aboutSection').style.display = "none";
+      document.getElementById('servicesSection').style.display = "none";
+      document.getElementById('contactSection').style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
